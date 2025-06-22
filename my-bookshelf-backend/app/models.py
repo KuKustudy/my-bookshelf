@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+# code credit to: https://dev.to/aquibpy/building-a-crud-api-with-fastapi-and-mongodb-32n
 class Book(BaseModel):
     title: str
     author: str

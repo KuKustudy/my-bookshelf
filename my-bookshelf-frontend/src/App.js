@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import "./tailwindoutput.css";
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
@@ -34,17 +33,16 @@ function App() {
 
 
   return (
-    <div>
-      <h1>Reading room</h1>
-      <p>Message from backend: {message}</p>
+    <div >
+      <h1 class="text-5xl font-bold text-center text-blue-500 mt-12 mb-12">Reading room</h1> 
+      <h2 class="text-2xl mb-6 px-12">Books you've added</h2>
 
-      <h2>Books</h2>
-      <ul>
+      <ul class="grid grid-cols-3 gap-6 px-12">
         {books.map(book => (
-          <li key={book._id}>
-            {book.title} <br />
+          <li key={book._id} class="p-4 rounded-xl border border-gray-300 shadow-md">
+            <h2 class="text-xl font-semibold text-center text-blue-700">{book.title} </h2> <br />
             Author: {book.author} <br />
-            {book.description} <br />
+            Description: {book.description} <br />
             Published: {book.published_year} <br />
             Finished Reading: {book.finished_reading ? 'Yes' : 'No'} <br /> <br />
           </li>

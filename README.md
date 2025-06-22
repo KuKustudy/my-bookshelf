@@ -2,7 +2,7 @@
 
 this is an app used to store books I have read and my comments
 
-
+## Set development environment
 to activate virtual environment:
 1. python -m venv venv 
 2. source venv/bin/activate
@@ -20,56 +20,69 @@ to run back end - fastAPI:
 2. uvicorn main:app --reload
 
 
-What the running app looks like:
+## What the running app looks like:
 ![Alt text](runningapp.png)
 
 
-What did I do to combine tailwind with frontend framework:
-# https://tailwindcss.com/docs/installation/tailwind-cli
-cd to frontend folder
-command: 
-1. 
-    npm install tailwindcss @tailwindcss/cli
-2. 
-    create a new file inside my-bookshelf-frontend/src/tailwind.css
-3. 
-    below should create a tailwindoutput.css file inside my-bookshelf-frontend/src
+## What did I do to combine tailwind with frontend framework:
+With reference to: https://tailwindcss.com/docs/installation/tailwind-cli
+first, cd to frontend folder
+then, enter following commands: 
+1. npm install tailwindcss @tailwindcss/cli
+2. create a new file call tailwind.css inside my-bookshelf-frontend/src folder
+3. enter below command, it should create a tailwindoutput.css file inside my-bookshelf-frontend/src
+   
     This command tells Tailwind to:
+   
         Take tailwind.css as the input
+   
         Generate tailwindoutput.css as the compiled file
+   
         Recompile on file changes (--watch)
 
     npx tailwindcss -i ./src/tailwind.css -o ./src/tailwindoutput.css --watch
 
-4.
-    add this to my-bookshelf-frontend/src/App.js
+5. add this to my-bookshelf-frontend/src/App.js
+   
         import './tailwindoutput.css';
+   
     add this to my-bookshelf-frontend/src/tailwind.css
+   
         @import "tailwindcss";
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
+   
     add this to my-bookshelf-frontend/public/index.html
+   
         <head>
             ...
             <link href="./tailwindoutput.css" ref="stylesheet"/>
             ...
         </head>
+   
 
-5. ready to change our style, note that these changes need to be made while step3's command
-   is running.
+7. ready to change our style, note that these changes need to be made while step3's command
+   is running so that new tailwind code is automatically recompiled.
+   
    An example change can be done inside my-bookshelf-frontend/src/App.js:
-   <h1 class="text-3xl font-bold text-center text-red-500">
+   
+   h1 class="text-3xl font-bold text-center text-red-500"
+   
 
 
-Declaration:
-I acknowledge the use of ChatGPT and DeepSeek to help me develop this application.
+## Declaration:
+
+I acknowledge the use of **ChatGPT** and **DeepSeek** to help me develop this application.
 I entered the following prompts: 
+
     - how to make use of this backend function in my react frontend? with insert code
+    
     - what does this do: npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+    
 
 
-Bugs encountered & Solutions:
+## Bugs encountered & Solutions:
     bug: sh: react-scripts: command not found
     solution: npm install --save react react-dom react-scripts
     solution reference: https://stackoverflow.com/questions/40546231/sh-react-scripts-command-not-found-after-running-npm-start

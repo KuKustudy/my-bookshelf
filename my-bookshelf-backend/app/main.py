@@ -20,7 +20,7 @@ client = MongoClient("mongodb+srv://wingyeehe040531:3D4nZdkVSqMSUl9k@cluster0.hi
 db = client["bookstorage"]
 collection = db["books"]
 
-# Configure CORS
+# Configure CORS, allow only our React frontend to make request, prohibit other malicious request
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],  # React's default port

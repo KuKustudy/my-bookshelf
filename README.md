@@ -7,11 +7,11 @@ to activate virtual environment:
 1. python -m venv venv 
 2. source venv/bin/activate
 
-to run front end:
+to run front end - react:
 1. go to 'my-bookshelf-frontend' folder
 2. npm start
 
 
-to run back end:
-1. go to 'my-bookshelf-backend' folder
+to run back end - fastAPI:
+1. go to 'my-bookshelf-backend'/'app' folder
 2. uvicorn main:app --reload

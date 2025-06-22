@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+# this is the entry point for the application
+
+
 # To run backend:
 # activate virtual environment: python -m venv venv 
 # STEP2:source venv/bin/activate

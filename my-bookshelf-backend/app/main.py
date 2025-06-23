@@ -59,7 +59,7 @@ async def get_book_by_id(book_id: str):
     else:
         raise HTTPException(status_code=404, detail="Book not found")
 
-# update a booj by its ID
+# update a book by its ID
 @app.put("/books/{book_id}", response_model=Book)
 async def update_book(book_id: str, book:Book):
     collection.update_one({"_id": ObjectId(book_id)}, {"$set": book.model_dump()})

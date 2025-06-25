@@ -3,10 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pymongo import MongoClient
 from models import Book
 from bson.objectid import ObjectId
+from dotenv import load_dotenv
+import os
 
 # this file contains functions that can be call by client (the frontend) to 
 # manage data in database
-
 
 
 # To run backend:
@@ -15,17 +16,18 @@ from bson.objectid import ObjectId
 # STEP3: go to: cd .../my-bookshelf/my-bookshelf-backend/app
 # STEP4: load the app: uvicorn main:app --reload
 
+load_dotenv() # load from .env file
 app = FastAPI()
 
 # connect to MongoDB database
-client = MongoClient("mongodb+srv://wingyeehe040531:3D4nZdkVSqMSUl9k@cluster0.hi80khf.mongodb.net/bookstorage?retryWrites=true&w=majority&appName=Cluster0")
+client = MongoClient(os.getenv("DATABASE_URL"))
 db = client["bookstorage"]
 collection = db["books"]
 
 # Configure CORS, allow only our React frontend to make request, prohibit other malicious request
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React's default port
+    allow_origins=["http://localhost:"+os.getenv("CLIENT_PORT")],  # React's default port
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

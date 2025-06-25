@@ -13,11 +13,13 @@ function App() {
 
   useEffect(() => {
     // get all books from backend by send a get request
-    axios.get('http://localhost:8000/books')
+    axios.get(process.env.REACT_APP_SERVER_URL+'/books')
       .then(response => {
         setBooks(response.data); 
       })
       .catch(error => {
+        console.log("Server URL:", process.env.REACT_APP_SERVER_URL);
+
         console.error('Error fetching books:', error);
       });
 

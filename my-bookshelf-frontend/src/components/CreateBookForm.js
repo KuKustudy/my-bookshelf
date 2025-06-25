@@ -35,7 +35,7 @@ function CreateBookForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch("http://localhost:8000/books",
+            const response = await fetch(process.env.REACT_APP_SERVER_URL+"/books",
                 {
                     method: "POST",
                     headers: {"Content-Type": "application/json",

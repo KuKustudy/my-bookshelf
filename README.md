@@ -1,6 +1,28 @@
 # my-bookshelf
 
-this is an app used to store books I have read and my comments
+This is an app used to store books I have read and my comments.
+This one-page application used tailwind css + react as frontend and fastAPI as backend.
+
+## Application structure
+
+if you are interested in how the code build up to this application or thinking of
+adapting this application , you should check out these files. They all contain
+comments here and there to explain themselves :)
+
+- my-bookshelf 
+    -- my-bookshelf-backend 
+        --- app 
+            ---- main.py
+            ---- models.py
+
+    -- my-bookshelf-frontend
+        --- src
+            ---- App.js
+            ---- index.js
+            ---- tailwind.css
+            ---- tailwindoutput.css
+    
+
 
 ## Set development environment
 to activate virtual environment:
@@ -11,7 +33,8 @@ to run front end - react:
 1. go to 'my-bookshelf-frontend' folder
 2. npm start
 
-to run front end - react with tailwind:
+to run front end - react with tailwind (if not run with tailwind, when you write
+tailwind code, the page won't update itself):
 1. go to 'my-bookshelf-frontend' folder
 2. npx tailwindcss -i ./src/tailwind.css -o ./src/tailwindoutput.css --watch
 
@@ -20,8 +43,10 @@ to run back end - fastAPI:
 2. uvicorn main:app --reload
 
 
+
 ## What the running app looks like:
-![Alt text](runningapp.png)
+![Alt text](homepage.png)
+![Alt text](createNewBookForm.png)
 
 
 ## What did I do to combine tailwind with frontend framework:
@@ -42,11 +67,11 @@ then, enter following commands:
 
     npx tailwindcss -i ./src/tailwind.css -o ./src/tailwindoutput.css --watch
 
-5. add this to my-bookshelf-frontend/src/App.js
+5. add this line of code to my-bookshelf-frontend/src/App.js
    
         import './tailwindoutput.css';
    
-    add this to my-bookshelf-frontend/src/tailwind.css
+    add these codes to my-bookshelf-frontend/src/tailwind.css
    
         @import "tailwindcss";
         @tailwind base;
@@ -83,11 +108,11 @@ I entered the following prompts:
 
 
 ## Bugs encountered & Solutions:
-    bug: sh: react-scripts: command not found
+    bug 1 : sh: react-scripts: command not found
     solution: npm install --save react react-dom react-scripts
     solution reference: https://stackoverflow.com/questions/40546231/sh-react-scripts-command-not-found-after-running-npm-start
 
-    bug: tailwind style not showing
+    bug 2 : tailwind style not showing
     solution: checkout tailwindoutput.css file, if it didn't contain the style definition
           then it means you didn't import basic tailwind style correctly
           fix this by include this in my-bookshelf-frontend/src/tailwind.css: 

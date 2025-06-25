@@ -4,28 +4,18 @@ import axios from 'axios';
 import CreateBookForm from "./components/CreateBookForm";
 
 
-
-// start the frontend: npm start
+// this file contains frontend code that define how the interface should look
+// to start the frontend: npm start
 
 function App() {
-  const [message, setMessage] = useState('');
+  // a pair of variable and function, the function updates the variable when needed
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-
-    // get message fron backend
-    axios.get('http://localhost:8000/')
-      .then(response => {
-        setMessage(response.data.message);
-      })
-      .catch(error => {
-        console.error('Error fetching message:', error);
-      });
-
-    // get books from backend
+    // get all books from backend by send a get request
     axios.get('http://localhost:8000/books')
       .then(response => {
-        setBooks(response.data); // store the list of books in response
+        setBooks(response.data); 
       })
       .catch(error => {
         console.error('Error fetching books:', error);
@@ -34,8 +24,7 @@ function App() {
   }, []);
 
 
-
-
+  // belows are tailwind css + html code
   return (
     <div >
       <h1 class="text-5xl font-bold text-center text-blue-500 mt-12 mb-12">Reading room</h1> 
@@ -48,7 +37,7 @@ function App() {
         {books
         .slice()
         .sort((a,b) => {
-          // Sort before display so that finished_reading: true comes first
+          // Sort before display so that books with finished_reading = true comes first
           if (a.finished_reading === b.finished_reading) return 0;
           return a.finished_reading ? -1 : 1;
         })

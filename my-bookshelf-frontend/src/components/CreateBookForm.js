@@ -1,11 +1,17 @@
 import ".././tailwindoutput.css";
 import { useState } from "react"
 
-
+// this file contains frontend code that handle the create_new_book form
+// the form pop up when user clicked 'CREATE' and form data should submit
+// itself when user clicked 'SUBMIT'
 
 function CreateBookForm() {
+    // useState is a pair of variable and function, the function updates the variable when needed
+
+    // handle form's open and close
     const [isOpen, setIsOpen] = useState(false);
 
+    // handle form data's update and submission
     const [formData, setFormData] = useState({
         title: "",
         author: "",
@@ -14,6 +20,7 @@ function CreateBookForm() {
         finished_reading: false,
     });
 
+    // simultaneously update form's data when user make change
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData((prev) => ({
@@ -23,6 +30,8 @@ function CreateBookForm() {
             [name]: type === "checkbox" ? checked : value,
         }));
     };
+
+    // submit form data when user clicked 'SUBMIT'
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -55,21 +64,20 @@ function CreateBookForm() {
 
 
     return (
-
         <div>
             <div class="flex justify-end p-12">
                 <button
                     className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
                     onClick={() => setIsOpen(true)}
                 >
+                    {/* Open form button */}
                     Create New Book
                 </button>
             </div>
-
             {isOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-40">
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-lg shadow-xl relative">
-                    {/* Close button */}
+                    {/* Close form button */}
                     <button
                     className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
                     onClick={() => setIsOpen(false)}
@@ -80,7 +88,7 @@ function CreateBookForm() {
                     <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
                     New Book
                     </h2>
-
+                    {/* a form that user can fill out */}
                     <form onSubmit={handleSubmit} class="max-w-md mx-auto">
                     <div class="relative z-0 w-full mb-5 group">
                         <input type="title" name="title" id="title" class="block py-2.5 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 

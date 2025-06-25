@@ -1,3 +1,12 @@
+/* I don't know why this file here I just copied everything the tutorial told me
+   TT
+   nah just kidding, this file is like feeding the app an input file, tailwind
+   is like a predefined css stylesheet, we take this stylesheet as input, so 
+   that we can use the predefined classes in our other files like App.js
+
+   Tutorial reference: https://tailwindcss.com/docs/installation/tailwind-cli
+*/
+
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;

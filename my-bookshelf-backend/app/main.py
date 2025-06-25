@@ -4,14 +4,16 @@ from pymongo import MongoClient
 from models import Book
 from bson.objectid import ObjectId
 
-# this is the entry point for the application
+# this file contains functions that can be call by client (the frontend) to 
+# manage data in database
+
 
 
 # To run backend:
-# activate virtual environment: python -m venv venv 
-# STEP2:source venv/bin/activate
-# go to: cd /Users/wingyeehe/documents/github_clones/my-bookshelf/my-bookshelf-backend
-# load the app: uvicorn main:app --reload
+# STEP1: activate virtual environment: python -m venv venv 
+# STEP2: source venv/bin/activate
+# STEP3: go to: cd .../my-bookshelf/my-bookshelf-backend/app
+# STEP4: load the app: uvicorn main:app --reload
 
 app = FastAPI()
 
@@ -28,11 +30,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.get("/")
-async def root():
-    return {"message": "Hello from FastAPI!"}
-
 
 # code credit to: https://dev.to/aquibpy/building-a-crud-api-with-fastapi-and-mongodb-32n
 # create a book

@@ -2,6 +2,7 @@
 
 This is an app used to store books I have read and my comments.
 This one-page application used tailwind css + react as frontend and fastAPI as backend.
+This application is now deployed using Render, and can be access with this link, note that because I am on Render's free plan, it may take 30 - 40 seconds for the app to load: https://my-bookshelf-app.onrender.com/
 
 ## Application structure
 

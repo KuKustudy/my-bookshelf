@@ -4,7 +4,7 @@ This is an app used to store books I have read and my comments.
 This one-page application used tailwind css + react as frontend and fastAPI as backend.
 This application is now deployed using Render, and can be access with this link, note that because I am on Render's free plan, it may take 30 - 40 seconds for the app to load: https://my-bookshelf-app.onrender.com/
 
-I root for the idea of open source, shoot a message to wingyeehe040531@gmail.com if you encountered any issue when setting it up locally or if you have any question/suggestion regarding anything about this app.
+I root for the idea of open source, shoot a message to CW0531@outlook.com if you encountered any issue when setting it up locally or if you have any question/suggestion regarding anything about this app.
 
 ## Application structure
 

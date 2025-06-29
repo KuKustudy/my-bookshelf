@@ -27,7 +27,7 @@ collection = db["books"]
 # Configure CORS, allow only our React frontend to make request, prohibit other malicious request
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:"+os.getenv("CLIENT_PORT")],  # React's default port
+    allow_origins=[os.getenv("CLIENT_URL")],  # React's default port/URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

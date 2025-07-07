@@ -35,7 +35,7 @@ function App() {
    
       <h2 class="text-2xl mb-6 px-12">Books you've added</h2>
 
-      <ul class="grid grid-cols-3 gap-6 px-12 mb-36">
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 px-12 mb-36">
         {books
         .slice()
         .sort((a,b) => {

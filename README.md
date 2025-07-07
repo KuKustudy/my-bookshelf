@@ -2,6 +2,9 @@
 
 This is an app used to store books I have read and my comments.
 This one-page application used tailwind css + react as frontend and fastAPI as backend.
+This application is now deployed using Render, and can be access with this link, note that because I am on Render's free plan, it may take 30 - 40 seconds for the app to load: https://my-bookshelf-app.onrender.com/
+
+I root for the idea of open source, shoot a message to CW0531@outlook.com if you encountered any issue when setting it up locally or if you have any question/suggestion regarding anything about this app.
 
 ## Application structure
 
@@ -32,12 +35,13 @@ comments here and there to explain themselves :)
 
 
 ## Set development environment
-to activate virtual environment:
+to activate virtual environment, in root directory:
 1. python -m venv venv 
 2. source venv/bin/activate
 
 to run front end - react:
 1. go to 'my-bookshelf-frontend' folder
+2. if first time run: npm install
 2. npm start
 
 to run front end - react with tailwind (if not run with tailwind, when you write
@@ -47,6 +51,7 @@ tailwind code, the page won't update itself):
 
 to run back end - fastAPI:
 1. go to 'my-bookshelf-backend'/'app' folder
+2. if first time run: pip install "fastapi[standard]" "uvicorn[standard]" pydantic python-dotenv pymongo dnspython
 2. uvicorn main:app --reload
 
 
@@ -116,7 +121,13 @@ I entered the following prompts:
 
 ## Bugs encountered & Solutions:
     bug 1 : sh: react-scripts: command not found
-    solution: npm install --save react react-dom react-scripts
+    try solution 1: npm install --save react react-dom react-scripts
+    try solution 2: rm -rf node_modules package-lock.json 
+                    
+                    then run: npm install react-scripts@5.0.1 --save && npm install
+                    
+                    then run: npm start
+
     solution reference: https://stackoverflow.com/questions/40546231/sh-react-scripts-command-not-found-after-running-npm-start
 
     bug 2 : tailwind style not showing
